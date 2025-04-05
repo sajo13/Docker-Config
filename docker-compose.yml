@@ -1,0 +1,56 @@
+services:
+  laravelapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: laravel-11
+    working_dir: /var/www/html
+    volumes:
+      - .:/var/www/html
+    restart: always
+    ports:
+      - "8003:80"   #laravel app
+      - "5173:5173" # For Vite
+    env_file:
+      - .env
+    depends_on:
+      - mysql
+    networks:
+      - laravel
+    environment:
+      - DB_HOST=mysql
+
+  mysql:
+    container_name: mysql
+    image: mysql:8.0
+    restart: always
+    ports:
+      - "3308:3306"
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      - MYSQL_DATABASE=${DB_DATABASE}       #laravel-app .env values
+      - MYSQL_USER=${DB_USERNAME}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+    volumes:
+      - ./dump:/docker-entrypoint-initdb.d
+      - ./conf:/etc/mysql/conf.d
+      - pgdata:/var/lib/mysql
+    networks:
+      - laravel
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8081:8080
+    environment:
+      - PMA_HOST=mysql
+    networks:
+      - laravel
+      
+volumes:
+  pgdata: {}
+
+networks:
+  laravel:
