@@ -1,6 +1,6 @@
 # 🚀 Setup
 
-This project is a Dockerized Laravel application using MySQL and Apache with a custom virtual host.
+This project is a Dockerized Application Development.
 
 ---
 
