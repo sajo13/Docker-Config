@@ -16,6 +16,7 @@ Run Compose with the `COMPOSE_BAKE=true` environment variable:
 COMPOSE_BAKE=true docker compose build            //For individual case
 
 🔧 To enable Bake as the default builder: Edit your Docker config file:
+//Bake config added for faster build process.
 
 nano $HOME/.docker/config.json
 
