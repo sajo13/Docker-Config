@@ -141,4 +141,4 @@ docker exec -it <app-container-name> php artisan tinker
 🧑‍💻 Author
 
 Sajo
-🔗 GitHub - (@sajo13)[https://github.com/sajo13]
+🔗 [GitHub@sajo13](https://github.com/sajo13)
