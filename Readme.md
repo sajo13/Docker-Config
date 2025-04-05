@@ -27,8 +27,8 @@ This project is a Dockerized Laravel application using MySQL and Apache with a c
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/sajo13/Docker-Config/tree/laravel-11
-cd laravel-11
+git clone https://github.com/sajo13/Docker-Config/tree/laravel-12
+cd laravel-12
 
 
 2️⃣ Set Up the Environment File
